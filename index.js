@@ -70,7 +70,7 @@ function requireLogin(req, res, next) {
 
 /* 카드 2: 패스키 등록 */
 
-app.post("/api/passkeys/register/options", (req, res) => {
+app.post("/api/passkeys/register/options", async (req, res) => {
   const username = String(req.body.username || "").trim();
 
   if (username.length < 2 || username.length > 30) {
@@ -93,7 +93,7 @@ app.post("/api/passkeys/register/options", (req, res) => {
 
   const { rpID } = getWebAuthnConfig(req);
 
-  const options = generateRegistrationOptions({
+  const options = await generateRegistrationOptions({
     rpName: "김현승의 자기소개",
     rpID,
     userName: user.username,
@@ -171,10 +171,10 @@ app.post("/api/passkeys/register/verify", async (req, res) => {
 
 /* 카드 3: 패스키 로그인 */
 
-app.post("/api/passkeys/login/options", (req, res) => {
+app.post("/api/passkeys/login/options", async (req, res) => {
   const { rpID } = getWebAuthnConfig(req);
 
-  const options = generateAuthenticationOptions({
+  const options = await generateAuthenticationOptions({
     rpID,
     userVerification: "required",
   });
