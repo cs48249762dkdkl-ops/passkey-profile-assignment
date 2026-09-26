@@ -97,6 +97,7 @@ app.post("/api/passkeys/register/options", (req, res) => {
     rpName: "김현승의 자기소개",
     rpID,
     userName: user.username,
+    userDisplayName: user.username,
     userID: new TextEncoder().encode(user.id),
     attestationType: "none",
     authenticatorSelection: {
