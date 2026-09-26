@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김현승의 자기소개</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="profile">
+      <p class="label">PUBLIC PROFILE</p>
+      <h1>김현승</h1>
+
+      <p>
+        안녕하세요!<br />
+        저는 보안 관련 공부를 하고 있습니다.
+      </p>
+
+      <section>
+        <h2>💻 관심 분야</h2>
+        <ul>
+          <li>보안</li>
+          <li>네트워크</li>
+          <li>게임 개발</li>
+          <li>화이트 해커</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🎮 취미</h2>
+        <ul>
+          <li>프라모델 조립</li>
+          <li>프로그래밍</li>
+          <li>3D 모델링</li>
+        </ul>
+      </section>
+
+      <section class="private-area">
+        <p class="label">PRIVATE AREA</p>
+        <h2>🔐 비공개 자료</h2>
+
+        <p id="status">
+          패스키를 등록한 사용자만 비공개 자료를 볼 수 있습니다.
+        </p>
+
+        <label class="name-label">
+          등록할 이름
+          <input id="username" maxlength="30" placeholder="예: 김현승" />
+        </label>
+
+        <button id="register-button">새 패스키 등록</button>
+        <button id="login-button">패스키로 로그인</button>
+        <button id="private-button">비공개 자료 열기</button>
+        <button id="list-passkeys-button">등록된 패스키 관리</button>
+        <button id="logout-button">로그아웃</button>
+
+        <div id="private-content"></div>
+        <div id="passkey-list"></div>
+      </section>
+    </main>
+
+    <script src="/webauthn/index.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
